@@ -11,8 +11,16 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = [process.env.CLIENT_URL || "http://localhost:5173"];
 
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+app.get("/",(req,res)=>{
+  res.send("✅ Server is running");
+})
 app.use("/api/user",userRouter)
 app.use("/api/todo",todoRoute)
 
