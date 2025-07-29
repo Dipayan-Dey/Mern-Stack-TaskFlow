@@ -17,10 +17,10 @@ if (userData) {
 }
 
 export const createtodos = async (data) => {
-  return axios.post("http://localhost:8000/api/todo/createtodo", data);
+  return axios.post("https://mern-stack-taskflow.onrender.com/api/todo/createtodo", data);
 };
 export const getallTodo=(id,token)=>{
-   return axios.post(`http://localhost:8000/api/todo/getallTodo/${id}`, {
+   return axios.post(`https://mern-stack-taskflow.onrender.com/api/todo/getallTodo/${id}`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -28,8 +28,8 @@ export const getallTodo=(id,token)=>{
 }
 
 export const updateTodos=(id,data)=>{
-return axios.patch("http://localhost:8000/api/todo/updateTodo/"+id,data)
+return axios.patch("https://mern-stack-taskflow.onrender.com/api/todo/updateTodo/"+id,data)
 }
 export const deletetodos=(id)=>{
-return axios.delete("http://localhost:8000/api/todo/deletdTodo/"+id)
+return axios.delete("https://mern-stack-taskflow.onrender.com/api/todo/deletdTodo/"+id)
 }

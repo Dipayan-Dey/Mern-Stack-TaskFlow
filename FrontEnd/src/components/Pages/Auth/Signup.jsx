@@ -98,7 +98,7 @@ function Signup() {
       try {
         const { fullname, email, password } = formData;
         const res = await axios.post(
-          "http://localhost:8000/api/user/register",
+          "https://mern-stack-taskflow.onrender.com/api/user/register",
           {
             fullname,
             email,
