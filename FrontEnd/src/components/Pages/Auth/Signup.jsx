@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff, User, Mail, Lock, Check, X } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 // useNavigate
 // import { axios } from 'ax';
 function Signup() {
@@ -104,7 +105,7 @@ function Signup() {
             password,
           }
         );
-        alert("Account created successfully!");
+        toast.success("Account created successfully!");
         navigate("/login")
         console.log("Response:", res.data);
 
@@ -119,7 +120,7 @@ function Signup() {
           "Registration failed:",
           error.response?.data || error.message
         );
-        alert("Registration failed! " + (error.response?.data?.message || ""));
+        toast.error("Registration failed! " + (error.response?.data?.message || ""));
       }
       setFormData({
         fullname: "",
