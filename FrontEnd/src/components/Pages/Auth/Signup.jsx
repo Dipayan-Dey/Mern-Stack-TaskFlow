@@ -3,10 +3,9 @@ import { Eye, EyeOff, User, Mail, Lock, Check, X } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-// useNavigate
-// import { axios } from 'ax';
+
 function Signup() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -18,18 +17,17 @@ function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [loading, setLoading] = useState(false); // Loader state
 
   const validateForm = () => {
     const newErrors = {};
 
-    // Full name validation
     if (!formData.fullname.trim()) {
       newErrors.fullname = "Full name is required";
     } else if (formData.fullname.trim().length < 2) {
       newErrors.fullname = "Full name must be at least 2 characters";
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email) {
       newErrors.email = "Email is required";
@@ -37,14 +35,12 @@ function Signup() {
       newErrors.email = "Please enter a valid email address";
     }
 
-    // Password validation
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters";
     }
 
-    // Confirm password validation
     if (!formData.confirmPassword) {
       newErrors.confirmPassword = "Please confirm your password";
     } else if (formData.password !== formData.confirmPassword) {
@@ -62,7 +58,6 @@ function Signup() {
       [name]: value,
     }));
 
-    // Clear errors when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -90,38 +85,21 @@ function Signup() {
     });
 
     if (validateForm()) {
-      // console.log("Form submitted:", formData);
-      // // Handle successful form submission here
-
-      // alert("Account created successfully!");
-
+      setLoading(true); // Start loader
       try {
         const { fullname, email, password } = formData;
         const res = await axios.post(
           "https://mern-stack-taskflow.onrender.com/api/user/register",
-          {
-            fullname,
-            email,
-            password,
-          }
+          { fullname, email, password }
         );
         toast.success("Account created successfully!");
-        navigate("/login")
-        console.log("Response:", res.data);
-
-        // Reset form
-        // setFormData({
-        //   fullname: "",
-        //   email: "",
-        //   password: "",
-        //   confirmPassword: "",})
+        navigate("/login");
       } catch (error) {
-        console.error(
-          "Registration failed:",
-          error.response?.data || error.message
-        );
         toast.error("Registration failed! " + (error.response?.data?.message || ""));
+      } finally {
+        setLoading(false); // Stop loader
       }
+
       setFormData({
         fullname: "",
         email: "",
@@ -139,11 +117,8 @@ function Signup() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-cyan-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Card */}
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8">
-          {/* Header */}
           <div className="text-center mb-8">
-            {/* Avatar */}
             <div className="mx-auto w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
               <User className="w-10 h-10 text-white" />
             </div>
@@ -153,7 +128,6 @@ function Signup() {
             <p className="text-gray-600">Join us and start your journey</p>
           </div>
 
-          {/* Form */}
           <div className="space-y-6">
             {/* Full Name */}
             <div>
@@ -311,17 +285,41 @@ function Signup() {
                 )}
             </div>
 
-            {/* Submit Button */}
+            {/* Submit Button with Loader */}
             <button
               type="button"
               onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-4 rounded-lg font-medium hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl"
+              disabled={loading}
+              className={`w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-4 rounded-lg font-medium 
+                hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 
+                focus:ring-offset-2 transform transition-all duration-200 shadow-lg hover:shadow-xl 
+                ${loading ? "opacity-60 cursor-not-allowed" : "hover:scale-[1.02]"}`}
             >
-              Create Account
+              {loading ? (
+                <div className="flex items-center justify-center space-x-2">
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 108 8h-4l3 3 3-3h-4a8 8 0 01-8 8z"
+                    />
+                  </svg>
+                  <span>Creating...</span>
+                </div>
+              ) : (
+                "Create Account"
+              )}
             </button>
           </div>
 
-          {/* Footer */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
