@@ -222,9 +222,11 @@ const deleteitem = async (id) => {
                   <h4 className="text-lg font-bold text-slate-800">Description</h4>
                 </div>
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-6">
-                  <p className="text-slate-700 leading-relaxed text-base">
-                    {selectedItem.description}
+                  {selectedItem.description.split("\n").map((point,index)=>(
+                    <p key={index} className="text-slate-700 leading-relaxed text-base">
+                    {point}
                   </p>
+                  ))}
                 </div>
               </div>
 
