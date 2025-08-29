@@ -5,26 +5,27 @@ function Landing() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [animatedStats, setAnimatedStats] = useState({ users: 0, tasks: 0, teams: 0 });
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Product Manager",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      text: "TaskFlow revolutionized how our team manages projects. The intuitive interface and powerful features make productivity effortless."
-    },
-    {
-      name: "Michael Chen",
-      role: "Startup Founder",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      text: "From chaos to clarity in just one week. TaskFlow helped us organize our entire workflow and boost team collaboration."
-    },
-    {
-      name: "Emma Davis",
-      role: "Freelance Designer",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      text: "As a freelancer juggling multiple clients, TaskFlow keeps me organized and ensures I never miss a deadline."
-    }
-  ];
+ const testimonials = [
+  {
+    name: "Dipayan Dey",
+    role: "Developer",
+    image: "https://media.licdn.com/dms/image/v2/D4D35AQEEBIrp796hBQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1736313749444?e=1757070000&v=beta&t=a-l4XLcp_vbniS8hU9H6MDWIJgH_35sF0Pbt7cOz0uo",
+    text: "TaskFlow revolutionized how our team manages projects. The intuitive interface and powerful features make productivity effortless."
+  },
+  {
+    name: "Dipayan Dey",
+    role: "Manager",
+    image: "https://scontent.fccu13-3.fna.fbcdn.net/v/t39.30808-6/481184133_936560632023444_5453833696098006006_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=z4jCqRcBSCEQ7kNvwFfKQti&_nc_oc=AdmvpCB3uc3yZMXS1aomgP1nI3PE_tgnJUzJgb8URIqCNonhEC3gaRTBmcWNGbC_naYuA87P9vlR_s1cDGWrWVDp&_nc_zt=23&_nc_ht=scontent.fccu13-3.fna&_nc_gid=3DeB3F_HaUCs8UYTQHRk7A&oh=00_AfUA77DAjgQ6UFQnmcsIO21YkkRPtoqLlascPtRKeAKdlA&oe=68B75E7E",
+    text: "From chaos to clarity in just one week. TaskFlow helped us organize our entire workflow and boost team collaboration."
+  },
+  {
+    name: "Dipayan Dey",
+    role: "Designer",
+    image: "https://scontent.fccu13-1.fna.fbcdn.net/v/t39.30808-1/493906635_977671961245644_3932966137601151397_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=1d2534&_nc_ohc=23jq5-6SN20Q7kNvwE9eIHB&_nc_oc=AdnZ6K_V22NmghrpvjrbWEvzCcp6QeoLEppzOydhxY-I8O0hBHlfxikP4jWFfwtdjxnmtDhCiFIfRbrSgqjyW9XY&_nc_zt=24&_nc_ht=scontent.fccu13-1.fna&_nc_gid=3DeB3F_HaUCs8UYTQHRk7A&oh=00_AfWIzYca-ghFJAbwTUx0ClIkZ7Fhik8pL2KmehwCRyFAng&oe=68B748F2",
+    text: "As a freelancer juggling multiple clients, TaskFlow keeps me organized and ensures I never miss a deadline."
+  }
+];
+
 
   const features = [
     {
