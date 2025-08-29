@@ -108,15 +108,16 @@ function Landing() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                  <a target='_blank' href="https://dipayan-dey.github.io/portfolio/">
-                <button className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300" style={{ fontWeight: '700', letterSpacing: '0.025em' }}>
+                <button className="cursor-pointer group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300" style={{ fontWeight: '700', letterSpacing: '0.025em' }}>
                View My Profile
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                   </a>
                  <a target='_blank' href="https://dipayan-dey.github.io/portfolio/">
-                <button className="group inline-flex items-center px-8 py-4 bg-white text-gray-700 font-bold rounded-xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300" style={{ fontWeight: '600' }}>
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <button className="cursor-pointer group inline-flex items-center px-8 py-4 bg-white text-gray-700 font-bold rounded-xl shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all duration-300" style={{ fontWeight: '600' }}>
+                 
                  Explore Projects
+                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                     </a>
               </div>
