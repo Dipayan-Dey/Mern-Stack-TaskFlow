@@ -122,9 +122,9 @@ function Landing() {
                 <div className="flex -space-x-2">
                   {[
                     "https://media.licdn.com/dms/image/v2/D4D35AQEEBIrp796hBQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1736313749444?e=1757070000&v=beta&t=a-l4XLcp_vbniS8hU9H6MDWIJgH_35sF0Pbt7cOz0uo",
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMoIngXmT6e3Z3_beN-iew3UuOB9S8r1-frg&s",
-                    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
-                    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face"
+                    "https://media.licdn.com/dms/image/v2/D4D35AQGqlWawA0WHOQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1682005636413?e=1756915200&v=beta&t=2ErIW3UU2haBDy0j_mFyknAv1KkraxP0wl3s00J9XJc",
+                    "https://media.licdn.com/dms/image/v2/D5635AQHhPThF-JeWEw/profile-framedphoto-shrink_400_400/B56ZT6nFWGGoAc-/0/1739371337378?e=1756915200&v=beta&t=A5XujrqsxGI2ynyM98aEgqr5ySHNEmfoEesnZNT6ntY"
+                    // "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face"
                   ].map((avatar, index) => (
                     <img
                       key={index}
