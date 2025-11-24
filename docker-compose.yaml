@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: ./Backend
+    ports:
+      - "8000:8000"
+    
+    environment:
+      - PORT=8000
+      - MONGO_URI=mongodb+srv://Dipayan:<Password>@cluster0.haylipa.mongodb.net/todoapp?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET_KEY=4f8b2a97d6b9f2a8e34c3d2b1a53f4d7c9ef2d3c8765b4a28f93cb92da6fbdabf48267a8dfec7a76cf7f9bba2ce9fa3cf8b713e51597a99cd1e17904d96e2b3f
+    networks:
+      - todo-mern
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./FrontEnd
+    ports:
+      - "5173:5173"
+    networks:
+      - todo-mern
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - todo-mern
+networks:
+  todo-mern:
+    driver: bridge
+volumes:
+  mongo-data: 
+    driver: local
